@@ -8,6 +8,9 @@ class Event(models.Model):
     description = models.TextField()
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(blank=True)
+    image = models.ImageField(upload_to='images/%Y/%m/%d/')
+    # url = models.URLField()
     # resources = models.TextField(default=timezone.now)
     
 
