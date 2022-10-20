@@ -17,23 +17,29 @@ class EventListView(ListView):
 
 def event_detail(request, year, month, day, event):
     event = get_object_or_404(Event,slug=event,
-                                    status='published',
-                                    publish__year=year,
-                                    publish__month=month,
-                                    publish__day=day)
+                                    # status='published',
+                                    published__year=year,
+                                    published__month=month,
+                                    published__day=day)
     return render(request,'dsc_app/detail.html',{'event': event})
 
 def create_event(request):
-    if request.method == 'POST':
-        #submitted event
-        form = EventForm(request.POST)
-        if form.is_valid():
-            cd = form.cleaned_data
-            form.save()
-    else:
-        form = EventForm()
-    return render(request,'dsc_app/create.html',{'form':form})
+    #list of published events
+    # events = Event.objects.filter(published=True)
 
+    new_event = None
+
+    if request.method == 'POST':
+        #an event was published
+        event_form = EventForm(request.POST)
+        if event_form.is_valid():
+            #create event object and save
+            new_event = event_form.save()
+    else:
+        event_form = EventForm()
+    
+    return render(request,'dsc_app/create.html',{'new_event':new_event,'event_form':event_form})
+            
 
 
 

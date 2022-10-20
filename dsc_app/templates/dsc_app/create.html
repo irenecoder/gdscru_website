@@ -3,10 +3,14 @@
 {% block title%}Create Event{% endblock%}
 
 {% block content%}
-<h2>Create New Event</h2>
-<form action="{% url 'dsc_app:create' %}" method="post">
-    {{form.as_p}}
+{% if new_event %}
+<h2> Event created successfully</h2>
+{% else%}
+<h2 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-white mb-4">Create New Event</h2>
+<form  action="" method="post">
+    {{event_form.as_p}}
     {% csrf_token %}
+    <button class="btn btn-primary w-100 py-3" type="submit">Create new event</button>
 </form>
-<button type="submit" value="">Save</button>
+{% endif %}
 {% endblock content%}

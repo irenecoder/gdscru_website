@@ -1,7 +1,16 @@
-<h2> The  GDSC Events </h2>
+{% extends 'dsc_app/base.html'%}
+{% block content%}
 
+<h2> The  GDSC Events </h2>
 {% for event in events%}
     <ul>
-        <li>{{event.title}}</li>
+        <li><a href="{{event.get_absolute_url}}">{{event.title}}</a>
+        <p>
+            Published {{ event.published }}
+        </p>
+            {{ event.description|truncatewords:30|linebreaks }}
+        </li>
     </ul>
+    
 {% endfor %}
+{% endblock content%}

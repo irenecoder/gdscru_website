@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 
 # Create your models here.
 
@@ -16,4 +17,10 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('dsc_app:event_detail',
+        args=[self.published.year,
+        self.published.month,
+        self.published.day, self.slug])
 

@@ -4,7 +4,7 @@ from .models import Event
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ('title','description','image','slug')
+        fields = ('title','description','slug')
         widgets = {'url': forms.HiddenInput,}
 
 
