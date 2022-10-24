@@ -230,85 +230,33 @@
                 <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Past Events</h5>
                 <h1 class="display-4">What we have done</h1>
             </div>
-            {% for event in events%}
             <div class="owl-carousel price-carousel position-relative" style="padding: 0 45px 45px 45px;">
-                <div class="bg-light rounded text-center">
-                    <div class="position-relative">
-                        <img class="img-fluid rounded-top" src="{% static 'img/price-1.jpg' %}" alt="p-1">
-                        <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center" style="background: rgba(29, 42, 77, .8);">
-                            <h3 class="text-white">{{ event.slug}} </h3>
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top fw-normal" style="font-size: 22px; line-height: 45px;"></small><small class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;"></small>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="text-center py-5">
-                        <a href="{{event.get_absolute_url}}">{{event.title}}
-                        <p>Published {{ event.published }}</p>
-                        {{ event.description|truncatewords:30|linebreaks }}
-                        {% comment %} <p>Intermediate Javascript</p> {% endcomment %}
-                        {% comment %} <p>Telephone Service</p> {% endcomment %}
-                        <a href="{{event.get_absolute_url}}" class="btn btn-primary rounded-pill py-3 px-5 my-2">Check it out</a>
-                    </div>
-                </div>
-                <div class="bg-light rounded text-center">
-                    <div class="position-relative">
-                        <img class="img-fluid rounded-top" src="{% static 'img/price-2.jpg'%}" alt="">
-                        <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center" style="background: rgba(29, 42, 77, .8);">
-                            <h3 class="text-white">Python</h3>
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top fw-normal" style="font-size: 22px; line-height: 45px;"></small><small class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;"></small>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="text-center py-5">
-                        <p>Introduction to python</p>
-                        <p>Basic javascript </p>
-                        <p>Intermediate Javascript</p>
-                        {% comment %} <p>Telephone Service</p> {% endcomment %}
-                        <a href="" class="btn btn-primary rounded-pill py-3 px-5 my-2">Check it out</a>
-                    </div>
-                </div>
-                <div class="bg-light rounded text-center">
-                    <div class="position-relative">
-                        <img class="img-fluid rounded-top" src="{% static 'img/price-3.jpg' %}" alt="">
-                        <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center" style="background: rgba(29, 42, 77, .8);">
-                            <h3 class="text-white">Django</h3>
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top fw-normal" style="font-size: 22px; line-height: 45px;"></small><small class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;"></small>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="text-center py-5">
-                        <p>Basic javascript </p>
-                        <p>Intermediate Javascript</p>
-                        <p>Intermediate Javascript</p>
-                        {% comment %} <p>Telephone Service</p>{% endcomment%}
-                        <a href="" class="btn btn-primary rounded-pill py-3 px-5 my-2">Check it out</a>
-                    </div>
-                </div>
-                <div class="bg-light rounded text-center">
-                    <div class="position-relative">
-                        <img class="img-fluid rounded-top" src="{% static 'img/price-4.jpg' %}" alt="">
-                        <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center" style="background: rgba(29, 42, 77, .8);">
-                            <h3 class="text-white">React js</h3>
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top fw-normal" style="font-size: 22px; line-height: 45px;"></small><small class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;"></small>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="text-center py-5">
-                        <p>Basic javascript </p>
-                        <p>Intermediate Javascript</p>
-                        <p>Intermediate Javascript</p>
-                        {% comment %} <p>Telephone Service</p>{% endcomment %}
-                        <a href="" class="btn btn-primary rounded-pill py-3 px-5 my-2">Check it out</a> 
-                    </div> 
-                </div>
-            {% endfor %}
-            </div>
+                {% for event in events%}
+                            
+                                <div class="bg-light rounded text-center">
+                                    <div class="position-relative">
+                                        <img class="img-fluid rounded-top" src="{% static 'img/price-1.jpg' %}" alt="p-1">
+                                        <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center" style="background: rgba(29, 42, 77, .8);">
+                                            <h3 class="text-white">{{event.slug}} </h3>
+                                            <h1 class="display-4 text-white mb-0">
+                                                <small class="align-top fw-normal" style="font-size: 22px; line-height: 45px;"></small><small class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;"></small>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                    <div class="text-center py-5">
+                                        <a href="{{event.get_absolute_url}}">{{event.title}}</a>
+                                        <p>Published {{ event.published }}</p>
+                                        {{ event.description|truncatewords:30|linebreaks }}
+                                        <a href="{{event.get_absolute_url}}" class="btn btn-primary rounded-pill py-3 px-5 my-2">Check it out</a>
+                                    </div>
+                                </div>
+                           
+                {% endfor %} </div>
+
+            
         </div>
     </div>
+                
     <!-- Pricing Plan End -->
 
 
