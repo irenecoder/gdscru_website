@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dsc_app',
+    
 
     'django.contrib.sites',
     'allauth',
@@ -145,4 +147,6 @@ LOGIN_REDIRECT_URL ='/accounts/login'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #activate django heroku
 django_heroku.settings(locals())
+
+# AUTH_USER_MODEL ='accounts.User'
 

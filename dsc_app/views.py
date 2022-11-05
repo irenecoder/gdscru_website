@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from .forms import EventForm
 from .models import Event
 from django.views.generic import ListView
@@ -11,12 +11,13 @@ def index(request):
 def about(request):
     return render(request,'dsc_app/about.html')
 
-def event_detail(request, year, month, day, event):
+def event_detail(request, year, month, day, event,id):
     event = get_object_or_404(Event,slug=event,
                                     # status='published',
                                     published__year=year,
                                     published__month=month,
                                     published__day=day)
+    
     return render(request,'dsc_app/detail.html',{'event': event})
 
 def create_event(request):
@@ -35,6 +36,14 @@ def create_event(request):
         event_form = EventForm()
     
     return render(request,'dsc_app/create.html',{'new_event':new_event,'event_form':event_form})
+
+def delete_event(request,id):
+    deleted_event = get_object_or_404(Event,id=id)
+    deleted_event.delete()
+    redirect('dsc_app/index.html')
+
+
+
             
 
 
