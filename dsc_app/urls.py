@@ -7,4 +7,5 @@ urlpatterns = [
     path('about/', views.about,name="about"),
     path('<int:year>/<int:month>/<int:day>/<slug:event>/',views.event_detail,name="event_detail"),
     path('create/', views.create_event,name="create"),
+    path('events/', views.event_list,name="event_list"),
 ]

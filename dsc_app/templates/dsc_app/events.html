@@ -1,0 +1,7 @@
+{% extends 'dsc_app/base.html'%}
+{% load static %}
+{% block title%} Events{% endblock%}
+
+{% block content%}
+{% for event in events%}{{event}}{% endfor%}
+{% endblock content%}

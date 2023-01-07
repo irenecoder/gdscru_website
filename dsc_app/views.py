@@ -11,6 +11,10 @@ def index(request):
 def about(request):
     return render(request,'dsc_app/about.html')
 
+def event_list(request):
+    events = Event.objects.all()
+    return render(request,'dsc_app/events.html',{'events':events})
+
 def event_detail(request, year, month, day, event,id):
     event = get_object_or_404(Event,slug=event,
                                     # status='published',
