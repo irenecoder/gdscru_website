@@ -3,5 +3,7 @@
 {% block title%} Events{% endblock%}
 
 {% block content%}
-{% for event in events%}{{event}}{% endfor%}
-{% endblock content%}
+{% comment %} hello,events {% endcomment %}
+{% for event in events%}
+<h2>{{event.title}}</h2>{% endfor%}
+{% endblock %}

@@ -10,7 +10,8 @@
 <form  action="" method="post">
     {{event_form.as_p}}
     {% csrf_token %}
-    <button class="btn btn-primary w-100 py-3" type="submit">Create new event</button>
+    <a href="{% url "dsc_app:event_list"%}">Create new event</a>
+    {% comment %} <button class="btn btn-primary w-100 py-3" type="submit" {% url "dsc_app:event_list"%}>Create new event</button> {% endcomment %}
 </form>
 {% endif %}
 {% endblock content%}
