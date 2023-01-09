@@ -8,7 +8,7 @@
 {% else%}
 <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-white mb-4">Create New Event</h2>
 <form  action="" method="post">
-    {{event_form.as_p}}
+    {{form.as_p}}
     {% csrf_token %}
     <a href="{% url "dsc_app:event_list"%}">Create new event</a>
     {% comment %} <button class="btn btn-primary w-100 py-3" type="submit" {% url "dsc_app:event_list"%}>Create new event</button> {% endcomment %}

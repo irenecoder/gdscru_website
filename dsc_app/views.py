@@ -1,6 +1,8 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from .forms import EventForm
 from .models import Event
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.views.generic import ListView
 
 # Create your views here.
@@ -25,21 +27,18 @@ def event_detail(request, year, month, day, event,id):
     return render(request,'dsc_app/detail.html',{'event': event})
 
 def create_event(request):
-    #list of published events
-    # events = Event.objects.filter(published=True)
-
-    new_event = None
-
-    if request.method == 'POST':
-        #an event was published
-        event_form = EventForm(request.POST)
-        if event_form.is_valid():
-            #create event object and save
-            new_event = event_form.save()
+    """Add a new event"""
+    if request.method != 'POST':
+        #No data submitted;create a blank form
+        form = EventForm()
     else:
-        event_form = EventForm()
-    
-    return render(request,'dsc_app/create.html',{'new_event':new_event,'event_form':event_form})
+        #POST data submitted;process data
+        form = EventForm(request.POST) 
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('dsc_app:event_list'))
+    context = {'form':form}
+    return render(request,'dsc_app/create.html',context)
 
 def delete_event(request,id):
     deleted_event = get_object_or_404(Event,id=id)
