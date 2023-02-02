@@ -8,7 +8,7 @@
     {% for event in events %}
        <li>
           <h3>
-             <a href="{% url 'dsc_app:event_detail' event.id %}">{{event.title}}</a>
+             <a href="{{event.get_absolute_url}}">{{event.title}}</a>
           </h3>
        </li>
  {% empty %}

@@ -17,7 +17,7 @@ def event_list(request):
     events = Event.objects.all()
     return render(request,'dsc_app/events.html',{'events':events})
 
-def event_detail(request, year, month, day, event,id):
+def event_detail(request, year, month, day, event):
     event = get_object_or_404(Event,slug=event,
                                     # status='published',
                                     published__year=year,
